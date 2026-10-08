@@ -60,7 +60,13 @@ export default function RoadmapGraph({ json }: { json: string }) {
       return {
         id,
         position: { x: col * 300, y: row * 130 },
-        data: { label: n.title || id },
+        data: {
+  label: (
+    <div style={{ fontSize: "14px", lineHeight: 1.3 }}>
+      {n.title || id}
+    </div>
+  ),
+},
         style: {
           width: 260,
           background: COLORS[col % COLORS.length],
@@ -68,7 +74,10 @@ export default function RoadmapGraph({ json }: { json: string }) {
           border: "1px solid #334155",
           borderRadius: 8,
           padding: 10,
-          fontSize: 116,
+          fontSize: "14px",
+          lineHeight: "1.3",
+          textAlign: "center",
+          overflowWrap: "break-word",
           fontWeight: 600,
         },
       };
